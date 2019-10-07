@@ -11,6 +11,12 @@ namespace Factory_Demo
         static void Main(string[] args)
         {
 
+            Bierzelt zelt1 = new Bierzelt();
+
+            var lecker = zelt1.GibEssen();
+
+            lecker.Beschreibung();
+
             Console.WriteLine("---ENDE---");
             Console.ReadKey();
         }
