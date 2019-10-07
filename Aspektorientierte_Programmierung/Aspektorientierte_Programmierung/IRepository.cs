@@ -16,56 +16,59 @@ namespace Aspektorientierte_Programmierung
         IEnumerable<T> GetAll<T>();
     }
 
-    public class LoggerRepository : IRepository // Dektorator
+    public enum User { ReadOnlyUser,User,Admin};
+    public class AuthRepository : IRepository
     {
-        public LoggerRepository(IRepository parent)
+        public AuthRepository(IRepository parent,User currentUser)
         {
             this.parent = parent;
+            this.currentUser = currentUser;
         }
         private IRepository parent;
+        private User currentUser;
 
         private void Log(string message)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"[{DateTime.Now.ToLongDateString()}]: {message}");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(message);
             Console.ResetColor();
         }
 
+
         public void Delete<T>(T item)
         {
-            Log("Vor dem Delete");
-            parent.Delete(item);
-            Log("Nach dem Delete");
+            if (currentUser == User.Admin)
+                parent.Delete(item);
+            else
+                Log($"Der aktuelle User {currentUser.ToString()} darf nicht löschen!");
         }
 
         public IEnumerable<T> GetAll<T>()
         {
-            Log("Vor dem GetAll");
             parent.GetAll<Person>();
-            Log("Nach dem GetAll");
             return null;
         }
 
         public T GetByID<T>(int ID)
         {
-            Log("Vor dem GetByID");
-            parent.GetByID<T>(ID);
-            Log("Nach dem GetByID");
+            parent.GetByID<Person>(ID);
             return default;
         }
 
         public void Insert<T>(T item)
         {
-            Log("Vor dem Insert");
-            parent.Insert(item);
-            Log("Nach dem Insert");
+            if (currentUser == User.Admin || currentUser == User.User)
+                parent.Insert(item);
+            else
+                Log("Der ReadOnlyUser darf kein Insert ausfüren !");
         }
 
         public void Update<T>(T item)
         {
-            Log("Vor dem Update");
-            parent.Update(item);
-            Log("Nach dem Update");
+            if (currentUser == User.Admin || currentUser == User.User)
+                parent.Update(item);
+            else
+                Log("Der ReadOnlyUser darf kein Update ausfüren !");
         }
     }
 }

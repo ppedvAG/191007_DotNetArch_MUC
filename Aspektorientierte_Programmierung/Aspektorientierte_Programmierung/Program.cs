@@ -10,7 +10,13 @@ namespace Aspektorientierte_Programmierung
     {
         static void Main(string[] args)
         {
-            IRepository repo = new LoggerRepository(new DatenbankRepository());
+            IRepository repo = new AuthRepository(new LoggerRepository(new DatenbankRepository())
+                                                  ,User.User);
+
+            // Builder
+            // CreateRepository()
+            //   .WithLogger()
+            //   .WithAuth()
 
             Person p1 = new Person { Vorname = "Tom", Nachname = "Ate", Alter = 10, Kontostand = 100 };
 
