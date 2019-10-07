@@ -10,21 +10,24 @@ namespace Fassade_Demo
     {
         static void Main(string[] args)
         {
-            // Ohne Fassade:
+            #region Ohne Fassade:
             // 1) Teilsysteme erstelle
 
-            EmailSystem es = new EmailSystem();
-            Rechnungsystem rs = new Rechnungsystem();
-            DHLLieferdienst ls = new DHLLieferdienst();
-            
-            if(rs.DeckelPrüfen("Michi"))
-            {
-                rs.BezahlvorgangStarten();
-                es.BestellbestätigungSchicken();
-                ls.PizzaPerDHLAusliefern();
-            }
+            //EmailSystem es = new EmailSystem();
+            //Rechnungsystem rs = new Rechnungsystem();
+            //DHLLieferdienst ls = new DHLLieferdienst();
 
+            //if(rs.DeckelPrüfen("Michi"))
+            //{
+            //    rs.BezahlvorgangStarten();
+            //    es.BestellbestätigungSchicken();
+            //    ls.PizzaPerDHLAusliefern();
+            //} 
+            #endregion
 
+            LuigisPizzaria pizzaria = new LuigisPizzaria();
+
+            pizzaria.PizzaBestellen("Michael");
 
             Console.WriteLine("---ENDE---");
             Console.ReadKey();
