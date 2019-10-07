@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBenachrichtigungsSystem.cs" />
+    <Compile Include="ILieferdienst.cs" />
+    <Compile Include="IRechenSystem.cs" />
+    <Compile Include="LuigisPizzaria.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

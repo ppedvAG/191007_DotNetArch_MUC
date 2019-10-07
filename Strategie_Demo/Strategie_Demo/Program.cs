@@ -10,6 +10,9 @@ namespace Strategie_Demo
     {
         static void Main(string[] args)
         {
+            LuigisPizzaria lp = new LuigisPizzaria(new BrieftaubenSystem(),new Supercomputer(),new LuigiLieferdienst());
+
+            lp.PizzaBestellen("Michi");
 
             Console.WriteLine("---ENDE---");
             Console.ReadKey();
