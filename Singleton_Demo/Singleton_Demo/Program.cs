@@ -10,6 +10,18 @@ namespace Singleton_Demo
     {
         static void Main(string[] args)
         {
+            //Logger.GetLogger().Log("Hallo Welt");
+            //Logger.GetLogger().Log("123");
+            //Logger.GetLogger().Log("Demolog");
+
+            Parallel.For(0, 10000, i =>
+              {
+                  Logger.GetLogger().Log(i.ToString());
+              });
+
+
+            Console.WriteLine("---ENDE---");
+            Console.ReadKey();
         }
     }
 }
