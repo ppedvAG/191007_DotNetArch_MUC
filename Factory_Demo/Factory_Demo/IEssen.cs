@@ -15,8 +15,11 @@ namespace Factory_Demo
     {
         public IEssen GibEssen()
         {
-            var aktuelleUhrzeit = DateTime.Now;
+            return GibEssen(DateTime.Now);
+        }
 
+        public IEssen GibEssen(DateTime aktuelleUhrzeit)
+        {
             if (aktuelleUhrzeit.Hour >= 6 && aktuelleUhrzeit.Hour < 11)
                 return new Frühstück();
             else if (aktuelleUhrzeit.Hour >= 11 && aktuelleUhrzeit.Hour < 16)

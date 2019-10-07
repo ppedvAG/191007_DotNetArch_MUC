@@ -17,6 +17,9 @@ namespace Factory_Demo
 
             lecker.Beschreibung();
 
+            var lecker2 = zelt1.GibEssen(new DateTime(1848, 3, 10, 8, 22, 59));
+            lecker2.Beschreibung();
+
             Console.WriteLine("---ENDE---");
             Console.ReadKey();
         }
