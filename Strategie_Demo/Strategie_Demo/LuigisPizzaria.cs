@@ -34,5 +34,10 @@ namespace Strategie_Demo
                 lieferdienst.ProduktAusliefern();
             }
         }
+        IEnumerable
+        public bool CheckeCredit(string name)
+        {
+            return rechenSystem.DeckelPrüfen(name);
+        }
     }
 }

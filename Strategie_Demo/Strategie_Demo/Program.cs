@@ -10,7 +10,11 @@ namespace Strategie_Demo
     {
         static void Main(string[] args)
         {
+
+
             LuigisPizzaria lp = new LuigisPizzaria(new BrieftaubenSystem(),new Supercomputer(),new LuigiLieferdienst());
+            // Console.WriteLine(lp.CheckeCredit("Michi"));
+            // Console.WriteLine(lp.CheckeCredit("Peter"));
 
             lp.PizzaBestellen("Michi");
 
