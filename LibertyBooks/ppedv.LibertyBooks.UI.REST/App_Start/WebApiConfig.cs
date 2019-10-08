@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace ppedv.LibertyBooks.UI.REST
@@ -19,6 +20,10 @@ namespace ppedv.LibertyBooks.UI.REST
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // Damit JSON ausgegeben wird anstelle von XML:
+            config.Formatters.JsonFormatter.SupportedMediaTypes
+                             .Add(new MediaTypeHeaderValue("text/html"));
         }
     }
 }
