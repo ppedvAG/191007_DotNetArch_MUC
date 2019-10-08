@@ -32,10 +32,10 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Title: "/>
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Author: "/>
-                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Pages: "/>
-                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Price: "/>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="📖: "/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="🧔: "/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="📃: "/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="💵: "/>
 
 
                         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Title}"/>
