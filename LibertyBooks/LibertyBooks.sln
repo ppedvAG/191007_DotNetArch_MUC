@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.UI.Konso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.UI.WPF", "ppedv.LibertyBooks.UI.WPF\ppedv.LibertyBooks.UI.WPF.csproj", "{A6E4F03E-9F99-4145-BE83-2977F7122A44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.UI.ASP", "ppedv.LibertyBooks.UI.ASP\ppedv.LibertyBooks.UI.ASP.csproj", "{B0620517-8957-457A-B3A5-6B11C234D0E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{A6E4F03E-9F99-4145-BE83-2977F7122A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6E4F03E-9F99-4145-BE83-2977F7122A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6E4F03E-9F99-4145-BE83-2977F7122A44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0620517-8957-457A-B3A5-6B11C234D0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0620517-8957-457A-B3A5-6B11C234D0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0620517-8957-457A-B3A5-6B11C234D0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0620517-8957-457A-B3A5-6B11C234D0E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{5C0A53D7-ADA7-4281-BA0D-6DE50C04D988} = {B8C61173-C268-4CC4-9CEE-05FE35E4BC8F}
 		{C82EBC3A-DD5A-4EC3-8DB4-585571285244} = {215C5093-EA7A-4514-BFDF-7AD398304C70}
 		{A6E4F03E-9F99-4145-BE83-2977F7122A44} = {215C5093-EA7A-4514-BFDF-7AD398304C70}
+		{B0620517-8957-457A-B3A5-6B11C234D0E2} = {215C5093-EA7A-4514-BFDF-7AD398304C70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96BC54FB-33C1-4324-B856-F033BAA0E35A}
