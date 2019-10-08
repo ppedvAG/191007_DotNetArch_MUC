@@ -1,6 +1,8 @@
 ﻿using ppedv.LibertyBooks.Domain;
 using ppedv.LibertyBooks.Domain.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ppedv.LibertyBooks.Logic
 {
@@ -89,5 +91,23 @@ namespace ppedv.LibertyBooks.Logic
 
             repository.Save();
         }
+        public bool HasData()
+        {
+            return repository.GetAll<Book>().Count() > 0; // Wenn wir Bücher haben -> true, wenn nicht -> false
+        }
+
+        public IEnumerable<Book> GetAllBooks()
+        {
+            return repository.GetAll<Book>();
+        }
+        public IEnumerable<Book> GetAllBooksWithPages(int minimumPages)
+        {
+            return repository.GetAll<Book>().Where(x => x.Pages >= minimumPages);
+        }
+        public IEnumerable<Store> GetAllStores()
+        {
+            return repository.GetAll<Store>();
+        }
+
     }
 }

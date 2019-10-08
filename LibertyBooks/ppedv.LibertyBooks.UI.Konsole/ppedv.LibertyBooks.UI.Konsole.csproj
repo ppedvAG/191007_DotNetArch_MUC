@@ -33,7 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,6 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ppedv.LibertyBooks.Data.EF\ppedv.LibertyBooks.Data.EF.csproj">
+      <Project>{319763ff-0f63-41dd-9011-c98f419fa60a}</Project>
+      <Name>ppedv.LibertyBooks.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ppedv.LibertyBooks.Domain\ppedv.LibertyBooks.Domain.csproj">
+      <Project>{16e60c7e-4f67-49f8-89d5-01fe1d6d9280}</Project>
+      <Name>ppedv.LibertyBooks.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ppedv.LibertyBooks.Logic\ppedv.LibertyBooks.Logic.csproj">
+      <Project>{5c0a53d7-ada7-4281-ba0d-6de50c04d988}</Project>
+      <Name>ppedv.LibertyBooks.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
