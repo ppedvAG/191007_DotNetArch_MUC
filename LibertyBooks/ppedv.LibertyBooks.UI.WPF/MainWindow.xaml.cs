@@ -2,6 +2,7 @@
 using ppedv.LibertyBooks.UI.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -26,8 +27,29 @@ namespace ppedv.LibertyBooks.UI.WPF
         public MainWindow()
         {
             InitializeComponent();
+            worker = new BackgroundWorker();
+            worker.DoWork += Backgroundworker_Aufgabe;
+            worker.WorkerReportsProgress = true;
+            worker.ProgressChanged += Backgroundworker_ReportProgress;
             // Variante 1)
             // this.DataContext = new MainViewModel(new Logic.Core(new EFRepository(new EFContext())));
+        }
+
+        private void Backgroundworker_ReportProgress(object sender, ProgressChangedEventArgs e)
+        {
+            // Zeigt den Progress in der Oberfläche an
+            // ---> Wird auf dem UI-Thread ausgefürt 
+            var currentProgress = e.ProgressPercentage;
+        }
+
+        private void Backgroundworker_Aufgabe(object sender, DoWorkEventArgs e)
+        {
+            // Aufgabe, die der Backgroundworker im Hintergrund macht
+            // ---- Auf einem anderen Thread
+            worker.ReportProgress(10);
+
+
+            worker.ReportProgress(100);
         }
 
         // Workaround: Mit Maus Scrollen aber nicht mit Toucheingabe
@@ -48,7 +70,6 @@ namespace ppedv.LibertyBooks.UI.WPF
                 Dispatcher.Invoke(() =>  progressBar.Value = 50);
             });
         }
-
-
+        private BackgroundWorker worker;
     }
 }

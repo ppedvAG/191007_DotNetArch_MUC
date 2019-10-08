@@ -21,13 +21,21 @@ namespace ppedv.LibertyBooks.UI.WPF.ViewModels
             // Dependency-Injection
             this.core = core;
             GetBooksCommand = new Command(GetBooks);
+            CancelGetBooksCommand = new Command(CancelGetBooks);
             UIEnabled = true;
         }
+
+        private void CancelGetBooks()
+        {
+            cts.Cancel();
+        }
+
         private readonly Core core; // <--- Model
+        private CancellationTokenSource cts = new CancellationTokenSource();
 
         private void GetBooks()
         {
-            Task.Run(() =>
+            Task t1 = Task.Run(() =>
             {
                 UIEnabled = false;
                 Progress = 0;
@@ -35,11 +43,16 @@ namespace ppedv.LibertyBooks.UI.WPF.ViewModels
                 Progress = 10;
                 Thread.Sleep(3000);
                 Progress = 50;
+                if (cts.Token.IsCancellationRequested)
+                    return;
                 Thread.Sleep(2000);
                 Books = core.GetAllBooks().ToList();
                 Progress = 100;
                 UIEnabled = true;
             });
+
+            // if(t1.Status == TaskStatus.Faulted)
+                // task hat einen fehler -> mach was ....
         }
 
         private List<Book> books;
@@ -49,6 +62,7 @@ namespace ppedv.LibertyBooks.UI.WPF.ViewModels
             set => SetProperty(ref books, value);
         }
         public Command GetBooksCommand { get; set; }
+        public Command CancelGetBooksCommand { get; set; }
 
         private double progress;
         public double Progress 

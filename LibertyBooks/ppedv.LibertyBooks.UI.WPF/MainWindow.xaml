@@ -19,8 +19,9 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Bücher laden" Command="{Binding GetBooksCommand}"
                       IsEnabled="{Binding UIEnabled}"/>
+            <MenuItem Header="Laden abbrechen" Command="{Binding CancelGetBooksCommand}"/>
         </Menu>
-        <ProgressBar x:Name="progressBar" Minimum="0" Maximum="100" Value="{Binding Progress,Mode=TwoWay}" DockPanel.Dock="Bottom" Height="20"/>
+        <ProgressBar Background="LightGreen" Foreground="Magenta" x:Name="progressBar" Minimum="0" Maximum="100" Value="{Binding Progress,Mode=TwoWay}" DockPanel.Dock="Bottom" Height="20"/>
 
         <ListBox ItemsSource="{Binding Books}"
                  IsStylusCapturedChanged="ListBox_IsStylusCapturedChanged">
