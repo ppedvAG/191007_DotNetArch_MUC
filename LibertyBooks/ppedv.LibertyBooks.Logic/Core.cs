@@ -10,9 +10,9 @@ namespace ppedv.LibertyBooks.Logic
     {
         public Core(IRepository repository)
         {
-            this.repository = repository;
+            this.Repository = repository;
         }
-        private readonly IRepository repository;
+        public readonly IRepository Repository;
 
         public void GenerateTestData()
         {
@@ -85,28 +85,28 @@ namespace ppedv.LibertyBooks.Logic
             s3.Stock.Add(new Inventory { Book = b4, Amount = 5, Price = 18.99m });
             s3.Stock.Add(new Inventory { Book = b5, Amount = 500, Price = 500.50m });
 
-            repository.Insert(s1);
-            repository.Insert(s2);
-            repository.Insert(s3);
+            Repository.Insert(s1);
+            Repository.Insert(s2);
+            Repository.Insert(s3);
 
-            repository.Save();
+            Repository.Save();
         }
         public bool HasData()
         {
-            return repository.GetAll<Book>().Count() > 0; // Wenn wir Bücher haben -> true, wenn nicht -> false
+            return Repository.GetAll<Book>().Count() > 0; // Wenn wir Bücher haben -> true, wenn nicht -> false
         }
 
         public IEnumerable<Book> GetAllBooks()
         {
-            return repository.GetAll<Book>();
+            return Repository.GetAll<Book>();
         }
         public IEnumerable<Book> GetAllBooksWithPages(int minimumPages)
         {
-            return repository.GetAll<Book>().Where(x => x.Pages >= minimumPages);
+            return Repository.GetAll<Book>().Where(x => x.Pages >= minimumPages);
         }
         public IEnumerable<Store> GetAllStores()
         {
-            return repository.GetAll<Store>();
+            return Repository.GetAll<Store>();
         }
 
     }
