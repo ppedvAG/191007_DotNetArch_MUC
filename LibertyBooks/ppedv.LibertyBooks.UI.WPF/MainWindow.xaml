@@ -1,4 +1,4 @@
-﻿<Window.Datacontext x:Class="ppedv.LibertyBooks.UI.WPF.MainWindow"
+﻿<Window x:Class="ppedv.LibertyBooks.UI.WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +7,8 @@
         xmlns:vm="clr-namespace:ppedv.LibertyBooks.UI.WPF.ViewModels"
         mc:Ignorable="d"
         Title="LibertyBooks - Buchverwaltung" Height="300" Width="400"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
+        DataContext="{Binding Source={StaticResource Locator},Path=Main}">
     <!--Window.DataContext-->
         <!-- Funktioniert nur, wenn ein parameterloser Konstruktor existiert-->
         <!--vm:MainViewModel/-->
