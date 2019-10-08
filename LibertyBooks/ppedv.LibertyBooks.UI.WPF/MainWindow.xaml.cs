@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ppedv.LibertyBooks.Data.EF;
+using ppedv.LibertyBooks.UI.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,8 @@ namespace ppedv.LibertyBooks.UI.WPF
         public MainWindow()
         {
             InitializeComponent();
+            // Variante 1)
+            // this.DataContext = new MainViewModel(new Logic.Core(new EFRepository(new EFContext())));
         }
     }
 }

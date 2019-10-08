@@ -14,13 +14,11 @@ namespace ppedv.LibertyBooks.UI.WPF.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        public MainViewModel()
+        public MainViewModel(Core core)
         {
-            // Kontrollfreak-Antipattern
-            core = new Core(new EFRepository(new EFContext()));
+            // Dependency-Injection
+            this.core = core;
             GetBooksCommand = new Command(GetBooks);
-
-            // Richtig: Über DependencyInjection
         }
         private readonly Core core; // <--- Model
 
