@@ -18,7 +18,8 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Bücher laden" Command="{Binding GetBooksCommand}"/>
         </Menu>
-        <ListBox ItemsSource="{Binding Books}">
+        <ListBox ItemsSource="{Binding Books}"
+                 IsStylusCapturedChanged="ListBox_IsStylusCapturedChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>

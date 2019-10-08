@@ -28,5 +28,14 @@ namespace ppedv.LibertyBooks.UI.WPF
             // Variante 1)
             // this.DataContext = new MainViewModel(new Logic.Core(new EFRepository(new EFContext())));
         }
+
+        // Workaround: Mit Maus Scrollen aber nicht mit Toucheingabe
+        private void ListBox_IsStylusCapturedChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if ((bool)e.NewValue == true) // Wenn Stylus
+                ScrollViewer.SetVerticalScrollBarVisibility((DependencyObject)sender, ScrollBarVisibility.Disabled);
+            else
+                ScrollViewer.SetVerticalScrollBarVisibility((DependencyObject)sender, ScrollBarVisibility.Visible);
+        }
     }
 }
