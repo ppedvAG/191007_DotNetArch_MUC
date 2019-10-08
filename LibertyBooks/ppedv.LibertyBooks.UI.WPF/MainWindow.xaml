@@ -17,6 +17,35 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Bücher laden" Command="{Binding GetBooksCommand}"/>
         </Menu>
-        <ListBox ItemsSource="{Binding Books}"/>
+        <ListBox ItemsSource="{Binding Books}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Title: "/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Author: "/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Pages: "/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Price: "/>
+
+
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Title}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Author}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Pages}"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Price}"/>
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </DockPanel>
 </Window>
