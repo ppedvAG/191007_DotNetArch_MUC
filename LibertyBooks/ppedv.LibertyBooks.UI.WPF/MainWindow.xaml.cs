@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -37,5 +38,17 @@ namespace ppedv.LibertyBooks.UI.WPF
             else
                 ScrollViewer.SetVerticalScrollBarVisibility((DependencyObject)sender, ScrollBarVisibility.Visible);
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Task.Run(() =>
+            {
+                Thread.Sleep(5000);
+                // Notwending, weil wir direkt auf die progressbar direkt zugreifen
+                Dispatcher.Invoke(() =>  progressBar.Value = 50);
+            });
+        }
+
+
     }
 }

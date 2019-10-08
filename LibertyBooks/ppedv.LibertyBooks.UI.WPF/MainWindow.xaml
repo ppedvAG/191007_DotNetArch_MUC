@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         Title="LibertyBooks - Buchverwaltung" Height="300" Width="400"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
-        DataContext="{Binding Source={StaticResource Locator},Path=Main}">
+        DataContext="{Binding Source={StaticResource Locator},Path=Main}"
+        Loaded="Window_Loaded">
     <!--Window.DataContext-->
         <!-- Funktioniert nur, wenn ein parameterloser Konstruktor existiert-->
         <!--vm:MainViewModel/-->
@@ -16,8 +17,11 @@
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Bücher laden" Command="{Binding GetBooksCommand}"/>
+            <MenuItem Header="Bücher laden" Command="{Binding GetBooksCommand}"
+                      IsEnabled="{Binding UIEnabled}"/>
         </Menu>
+        <ProgressBar x:Name="progressBar" Minimum="0" Maximum="100" Value="{Binding Progress,Mode=TwoWay}" DockPanel.Dock="Bottom" Height="20"/>
+
         <ListBox ItemsSource="{Binding Books}"
                  IsStylusCapturedChanged="ListBox_IsStylusCapturedChanged">
             <ListBox.ItemTemplate>
@@ -49,5 +53,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+
     </DockPanel>
 </Window>
