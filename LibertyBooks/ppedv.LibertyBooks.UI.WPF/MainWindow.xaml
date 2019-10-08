@@ -4,13 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ppedv.LibertyBooks.UI.WPF"
+        xmlns:vm="clr-namespace:ppedv.LibertyBooks.UI.WPF.ViewModels"
         mc:Ignorable="d"
         Title="LibertyBooks - Buchverwaltung" Height="300" Width="400"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.DataContext>
+        <!-- Funktioniert nur, wenn ein parameterloser Konstruktor existiert-->
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Bücher laden"/>
+            <MenuItem Header="Bücher laden" Command="{Binding GetBooksCommand}"/>
         </Menu>
-        <ListBox/>
+        <ListBox ItemsSource="{Binding Books}"/>
     </DockPanel>
 </Window>
