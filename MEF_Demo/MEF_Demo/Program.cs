@@ -6,6 +6,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.ComponentModel.Composition;// MEF -> Managed Extensibility Framework
+using System.ComponentModel.Composition.Hosting;
+
 namespace MEF_Demo
 {
     class Program
@@ -14,7 +17,15 @@ namespace MEF_Demo
         {
             Taschenrechner tr = new Taschenrechner();
 
-            var erg = tr.Rechenart.Berechne(12, 3);
+            // MEF -> Lade die Komponente in "Rechenart" hinein:
+
+            // 1) "Von wo kommen die Datentypen?"
+            DirectoryCatalog catalog = new DirectoryCatalog("."); // aus dem selben Verzeichnis der .EXE
+            CompositionContainer container = new CompositionContainer(catalog);
+            // 2) Taschenrechner mit implementierung füllen
+            container.ComposeParts(tr);
+
+            var erg = tr.Rechenart[0].Berechne(12, 3);
             Console.WriteLine(erg);
 
             Console.WriteLine("---ANFANG---");
@@ -26,13 +37,16 @@ namespace MEF_Demo
     {
         public Taschenrechner()
         {
-            // Variante mit Reflection
-            var dll = Assembly.LoadFrom("Logik.Rechenfunktionen.dll");
-            var addType = dll.GetType("Logik.Rechenfunktionen.Addition"); // Namespace.Klassenname
+            #region Variante mit Reflection
+            //var dll = Assembly.LoadFrom("Logik.Rechenfunktionen.dll");
+            //var addType = dll.GetType("Logik.Rechenfunktionen.Addition"); // Namespace.Klassenname
 
-            Rechenart = (IRechenart)Activator.CreateInstance(addType);
+            //Rechenart = (IRechenart)Activator.CreateInstance(addType); 
+            #endregion
         }
-        // Normalerweise
-        public IRechenart Rechenart { get; }
+
+        // [Import(typeof(IRechenart))] // Alternative [Import("meinName")]-> object
+        [ImportMany(typeof(IRechenart))] // Alternative [Import("meinName")]-> object
+        public IRechenart[] Rechenart { get; set; }
     }
 }
