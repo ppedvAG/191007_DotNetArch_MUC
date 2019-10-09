@@ -62,6 +62,10 @@
       <Project>{319763ff-0f63-41dd-9011-c98f419fa60a}</Project>
       <Name>ppedv.LibertyBooks.Data.EF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ppedv.LibertyBooks.Data.XML\ppedv.LibertyBooks.Data.XML.csproj">
+      <Project>{0f1f6906-17fa-4c9a-a42f-f51d1cf6610a}</Project>
+      <Name>ppedv.LibertyBooks.Data.XML</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ppedv.LibertyBooks.Domain\ppedv.LibertyBooks.Domain.csproj">
       <Project>{16e60c7e-4f67-49f8-89d5-01fe1d6d9280}</Project>
       <Name>ppedv.LibertyBooks.Domain</Name>

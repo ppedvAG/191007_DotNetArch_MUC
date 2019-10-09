@@ -12,7 +12,7 @@ namespace ppedv.LibertyBooks.Data.XML
     {
         public IEnumerable<Book> GetAll()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(Book));
+            XmlSerializer serializer = new XmlSerializer(typeof(Book[]));
             FileStream stream = new FileStream("Books.xml", FileMode.Open);
 
             Book[] data = (Book[])serializer.Deserialize(stream);
