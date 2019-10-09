@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ppedv.LibertyBooks.Domain\ppedv.LibertyBooks.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
