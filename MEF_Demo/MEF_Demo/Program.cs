@@ -1,8 +1,8 @@
 ﻿using Domain;
-using Logik.Rechenfunktionen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,7 +26,11 @@ namespace MEF_Demo
     {
         public Taschenrechner()
         {
-            Rechenart = new Addition();
+            // Variante mit Reflection
+            var dll = Assembly.LoadFrom("Logik.Rechenfunktionen.dll");
+            var addType = dll.GetType("Logik.Rechenfunktionen.Addition"); // Namespace.Klassenname
+
+            Rechenart = (IRechenart)Activator.CreateInstance(addType);
         }
         // Normalerweise
         public IRechenart Rechenart { get; }
