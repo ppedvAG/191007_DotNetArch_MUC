@@ -11,13 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{B8C61173
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{215C5093-EA7A-4514-BFDF-7AD398304C70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.Domain", "ppedv.LibertyBooks.Domain\ppedv.LibertyBooks.Domain.csproj", "{16E60C7E-4F67-49F8-89D5-01FE1D6D9280}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppedv.LibertyBooks.Domain", "ppedv.LibertyBooks.Domain\ppedv.LibertyBooks.Domain.csproj", "{16E60C7E-4F67-49F8-89D5-01FE1D6D9280}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.Data.EF", "ppedv.LibertyBooks.Data.EF\ppedv.LibertyBooks.Data.EF.csproj", "{319763FF-0F63-41DD-9011-C98F419FA60A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppedv.LibertyBooks.Data.EF", "ppedv.LibertyBooks.Data.EF\ppedv.LibertyBooks.Data.EF.csproj", "{319763FF-0F63-41DD-9011-C98F419FA60A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.Data.EF.Tests", "ppedv.LibertyBooks.Data.EF.Tests\ppedv.LibertyBooks.Data.EF.Tests.csproj", "{E209E1E7-81D3-46F7-A5BD-FE7A01D5CFBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.Logic", "ppedv.LibertyBooks.Logic\ppedv.LibertyBooks.Logic.csproj", "{5C0A53D7-ADA7-4281-BA0D-6DE50C04D988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppedv.LibertyBooks.Logic", "ppedv.LibertyBooks.Logic\ppedv.LibertyBooks.Logic.csproj", "{5C0A53D7-ADA7-4281-BA0D-6DE50C04D988}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.UI.Konsole", "ppedv.LibertyBooks.UI.Konsole\ppedv.LibertyBooks.UI.Konsole.csproj", "{C82EBC3A-DD5A-4EC3-8DB4-585571285244}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.UI.ASP", "ppedv.LibertyBooks.UI.ASP\ppedv.LibertyBooks.UI.ASP.csproj", "{B0620517-8957-457A-B3A5-6B11C234D0E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.UI.REST", "ppedv.LibertyBooks.UI.REST\ppedv.LibertyBooks.UI.REST.csproj", "{D3332942-2685-456A-A6A6-93F91D3A3642}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.LibertyBooks.Data.XML", "ppedv.LibertyBooks.Data.XML\ppedv.LibertyBooks.Data.XML.csproj", "{0F1F6906-17FA-4C9A-A42F-F51D1CF6610A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{D3332942-2685-456A-A6A6-93F91D3A3642}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3332942-2685-456A-A6A6-93F91D3A3642}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3332942-2685-456A-A6A6-93F91D3A3642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F1F6906-17FA-4C9A-A42F-F51D1CF6610A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F1F6906-17FA-4C9A-A42F-F51D1CF6610A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F1F6906-17FA-4C9A-A42F-F51D1CF6610A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F1F6906-17FA-4C9A-A42F-F51D1CF6610A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{A6E4F03E-9F99-4145-BE83-2977F7122A44} = {215C5093-EA7A-4514-BFDF-7AD398304C70}
 		{B0620517-8957-457A-B3A5-6B11C234D0E2} = {215C5093-EA7A-4514-BFDF-7AD398304C70}
 		{D3332942-2685-456A-A6A6-93F91D3A3642} = {215C5093-EA7A-4514-BFDF-7AD398304C70}
+		{0F1F6906-17FA-4C9A-A42F-F51D1CF6610A} = {4596EAF4-E5D6-4170-8D3B-0365EB89884B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96BC54FB-33C1-4324-B856-F033BAA0E35A}
