@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEF_Demo", "MEF_Demo\MEF_Demo.csproj", "{65858E8B-C420-45FA-9C29-D16F6E47EE2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{93C9E288-6F18-4C2B-AA1A-EFDD038DA784}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logik.Rechenfunktionen", "Logik.Rechenfunktionen\Logik.Rechenfunktionen.csproj", "{98AC67C5-B5C0-400C-B1E3-7BAAE08E0793}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{65858E8B-C420-45FA-9C29-D16F6E47EE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65858E8B-C420-45FA-9C29-D16F6E47EE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65858E8B-C420-45FA-9C29-D16F6E47EE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93C9E288-6F18-4C2B-AA1A-EFDD038DA784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93C9E288-6F18-4C2B-AA1A-EFDD038DA784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93C9E288-6F18-4C2B-AA1A-EFDD038DA784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93C9E288-6F18-4C2B-AA1A-EFDD038DA784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98AC67C5-B5C0-400C-B1E3-7BAAE08E0793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98AC67C5-B5C0-400C-B1E3-7BAAE08E0793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98AC67C5-B5C0-400C-B1E3-7BAAE08E0793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98AC67C5-B5C0-400C-B1E3-7BAAE08E0793}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
