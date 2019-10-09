@@ -8,11 +8,11 @@ namespace ppedv.LibertyBooks.Logic
 {
     public class Core
     {
-        public Core(IRepository repository)
+        public Core(IUnitOfWork UoW)
         {
-            this.Repository = repository;
+            this.UoW = UoW;
         }
-        public readonly IRepository Repository;
+        public readonly IUnitOfWork UoW;
 
         public void GenerateTestData()
         {
@@ -85,28 +85,28 @@ namespace ppedv.LibertyBooks.Logic
             s3.Stock.Add(new Inventory { Book = b4, Amount = 5, Price = 18.99m });
             s3.Stock.Add(new Inventory { Book = b5, Amount = 500, Price = 500.50m });
 
-            Repository.Insert(s1);
-            Repository.Insert(s2);
-            Repository.Insert(s3);
+            UoW.StoreRepository.Insert(s1);
+            UoW.StoreRepository.Insert(s2);
+            UoW.StoreRepository.Insert(s3);
 
-            Repository.Save();
+            UoW.Save();
         }
         public bool HasData()
         {
-            return Repository.GetAll<Book>().Count() > 0; // Wenn wir Bücher haben -> true, wenn nicht -> false
+            return GetAllBooks().Count() > 0; // Wenn wir Bücher haben -> true, wenn nicht -> false
         }
 
         public IEnumerable<Book> GetAllBooks()
         {
-            return Repository.GetAll<Book>();
+            return UoW.BookRepository.GetAll();
         }
         public IEnumerable<Book> GetAllBooksWithPages(int minimumPages)
         {
-            return Repository.GetAll<Book>().Where(x => x.Pages >= minimumPages);
+            return GetAllBooks().Where(x => x.Pages >= minimumPages);
         }
         public IEnumerable<Store> GetAllStores()
         {
-            return Repository.GetAll<Store>();
+            return UoW.StoreRepository.GetAll();
         }
 
     }
