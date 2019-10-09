@@ -21,18 +21,18 @@ namespace ppedv.LibertyBooks.UI.WPF.Helpers
         {
             get
             {
-                core = core ?? new Core(Repository);
+                core = core ?? new Core(UoW);
                 return core;
             }
         }
 
-        private IRepository repository;
-        public IRepository Repository
+        private IUnitOfWork uow;
+        public IUnitOfWork UoW
         {
             get
             {
-                repository = repository ?? new EFRepository(new EFContext());
-                return repository;
+                uow = uow ?? new EFUnitOfWork(new EFContext());
+                return uow;
             }
         }
 

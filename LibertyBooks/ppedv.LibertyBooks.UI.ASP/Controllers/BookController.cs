@@ -13,7 +13,7 @@ namespace ppedv.LibertyBooks.UI.ASP.Controllers
     {
         public BookController()
         {
-            core = new Core(new EFRepository(new EFContext()));
+            core = new Core(new EFUnitOfWork(new EFContext()));
         }
         private Core core;
 
@@ -42,8 +42,8 @@ namespace ppedv.LibertyBooks.UI.ASP.Controllers
         {
             try
             {
-                core.Repository.Insert(createdBook);
-                core.Repository.Save();
+                core.UoW.BookRepository.Insert(createdBook);
+                core.UoW.Save();
                 return RedirectToAction("Index");
             }
             catch
@@ -56,7 +56,7 @@ namespace ppedv.LibertyBooks.UI.ASP.Controllers
         public ActionResult Edit(int id)
         {
             //var book = core.GetAllBooks().First(x => x.ID == id);
-            return View(core.Repository.GetByID<Book>(id));
+            return View(core.UoW.BookRepository.GetByID(id));
         }
 
         // POST: Book/Edit/5
@@ -66,8 +66,8 @@ namespace ppedv.LibertyBooks.UI.ASP.Controllers
             try
             {
                 // TODO: Add update logic here
-                core.Repository.Update<Book>(editedBook);
-                core.Repository.Save();
+                core.UoW.BookRepository.Update(editedBook);
+                core.UoW.Save();
 
                 return RedirectToAction("Index");
             }
@@ -80,7 +80,7 @@ namespace ppedv.LibertyBooks.UI.ASP.Controllers
         // GET: Book/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(core.Repository.GetByID<Book>(id));
+            return View(core.UoW.BookRepository.GetByID(id));
         }
 
         // POST: Book/Delete/5
@@ -89,11 +89,11 @@ namespace ppedv.LibertyBooks.UI.ASP.Controllers
         {
             try
             {
-                var loadedBook = core.Repository.GetByID<Book>(id); // es kann ja sein, dass das buch schon gelöscht wurde
+                var loadedBook = core.UoW.BookRepository.GetByID(id); // es kann ja sein, dass das buch schon gelöscht wurde
                 if(loadedBook!= null)
                 {
-                    core.Repository.Delete(loadedBook);
-                    core.Repository.Save();
+                    core.UoW.BookRepository.Delete(loadedBook);
+                    core.UoW.Save();
                 }
 
                 return RedirectToAction("Index");

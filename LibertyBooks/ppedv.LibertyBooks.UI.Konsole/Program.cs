@@ -13,7 +13,7 @@ namespace ppedv.LibertyBooks.UI.Konsole
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.Unicode;
-            Core core = new Core(new EFRepository(new EFContext()));
+            Core core = new Core(new EFUnitOfWork(new EFContext()));
 
             if (core.HasData() == false)
                 core.GenerateTestData();

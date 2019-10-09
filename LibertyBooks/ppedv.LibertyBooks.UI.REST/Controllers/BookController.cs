@@ -14,7 +14,7 @@ namespace ppedv.LibertyBooks.UI.REST.Controllers
     {
         public BookController()
         {
-            this.core = new Core(new EFRepository(new EFContext()));
+            this.core = new Core(new EFUnitOfWork(new EFContext()));
         }
         private readonly Core core;
 
@@ -30,7 +30,7 @@ namespace ppedv.LibertyBooks.UI.REST.Controllers
         public IHttpActionResult GetBook(int id)
         {
             // ToDo: Gibt es diese ID ?
-            var result = core.Repository.GetByID<Book>(id);
+            var result = core.UoW.BookRepository.GetByID(id);
             if (result == null)
                 return NotFound();
             else
