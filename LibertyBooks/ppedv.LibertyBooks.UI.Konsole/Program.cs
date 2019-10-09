@@ -17,7 +17,7 @@ namespace ppedv.LibertyBooks.UI.Konsole
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.Unicode;
-            Core core = new Core(new XMLUnitOfWork());
+            Core core = new Core(new XMLUnitOfWork(),new EFUnitOfWork(new EFContext()));
 
             #region EF - Code
             //if (core.HasData() == false)
@@ -89,7 +89,7 @@ namespace ppedv.LibertyBooks.UI.Konsole
             }
 
             var booksAusXML = core.GetAllBooks();
-            var booksWith20Pages = core.GetAllBooksWithPages(20).ToArray(); 
+            var booksWith20Pages = core.GetAllStores();
 
 
             Console.WriteLine("---ENDE---");

@@ -1,4 +1,6 @@
-﻿namespace ppedv.LibertyBooks.Domain.Interfaces
+﻿using System;
+
+namespace ppedv.LibertyBooks.Domain.Interfaces
 {
     public interface IUnitOfWork
     {
@@ -10,5 +12,7 @@
         IUniversalRepository<T> GetRepository<T>() where T : Entity;
 
         void Save(); // Speichern gilt für alle Repositories
+
+        Type[] SupportedTypes { get; }
     }
 }

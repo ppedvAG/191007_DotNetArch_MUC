@@ -1,5 +1,6 @@
 ﻿using ppedv.LibertyBooks.Domain;
 using ppedv.LibertyBooks.Domain.Interfaces;
+using System;
 
 namespace ppedv.LibertyBooks.Data.EF
 {
@@ -12,6 +13,7 @@ namespace ppedv.LibertyBooks.Data.EF
         }
         private readonly EFContext context;
 
+        public Type[] SupportedTypes => new Type[] { typeof(Inventory), typeof(Store) };
 
         // Variante 1): Immer ein neues Repository zurückgeben
         public IBookRepository BookRepository => new EFBookRepository(context);

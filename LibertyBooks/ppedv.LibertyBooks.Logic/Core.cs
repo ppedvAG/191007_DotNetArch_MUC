@@ -8,11 +8,19 @@ namespace ppedv.LibertyBooks.Logic
 {
     public class Core
     {
-        public Core(IUnitOfWork UoW)
+        public Core(params IUnitOfWork[] UoW)
         {
             this.UoW = UoW;
         }
-        public readonly IUnitOfWork UoW;
+        private readonly IUnitOfWork[] UoW; // privat -> nur Core darf drauf zugreifen
+
+        // Für alle anderen: UoW-FactoryMethode, die einem das richtige UoW gibt
+        public IUnitOfWork GetUnitOfWorkFor<T>()
+        {
+            return UoW.First(x => x.SupportedTypes.Contains(typeof(T)));
+            // ToDo: wenn nichts gefunden -> Exception werfen
+        }
+
 
         public void GenerateTestData()
         {
@@ -85,11 +93,13 @@ namespace ppedv.LibertyBooks.Logic
             s3.Stock.Add(new Inventory { Book = b4, Amount = 5, Price = 18.99m });
             s3.Stock.Add(new Inventory { Book = b5, Amount = 500, Price = 500.50m });
 
-            UoW.StoreRepository.Insert(s1);
-            UoW.StoreRepository.Insert(s2);
-            UoW.StoreRepository.Insert(s3);
+            var uow = GetUnitOfWorkFor<Store>();
 
-            UoW.Save();
+            uow.StoreRepository.Insert(s1);
+            uow.StoreRepository.Insert(s2);
+            uow.StoreRepository.Insert(s3);
+
+            uow.Save();
         }
         public bool HasData()
         {
@@ -98,7 +108,8 @@ namespace ppedv.LibertyBooks.Logic
 
         public IEnumerable<Book> GetAllBooks()
         {
-            return UoW.BookRepository.GetAll();
+            // Holt sich die Daten aus XML
+            return GetUnitOfWorkFor<Book>().BookRepository.GetAll();
         }
         public IEnumerable<Book> GetAllBooksWithPages(int minimumPages)
         {
@@ -106,7 +117,8 @@ namespace ppedv.LibertyBooks.Logic
         }
         public IEnumerable<Store> GetAllStores()
         {
-            return UoW.StoreRepository.GetAll();
+            //Holt sich die Daten aus EF
+            return GetUnitOfWorkFor<Store>().StoreRepository.GetAll();
         }
 
     }

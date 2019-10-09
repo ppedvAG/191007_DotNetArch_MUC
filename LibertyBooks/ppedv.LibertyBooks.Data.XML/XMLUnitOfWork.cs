@@ -7,6 +7,7 @@ namespace ppedv.LibertyBooks.Data.XML
     public class XMLUnitOfWork : IUnitOfWork
     {
         public IBookRepository BookRepository => new XMLBookRepository();
+        public Type[] SupportedTypes => new Type[] { typeof(Book)};
 
         #region Ausgelassen für simple Variante
         public IStoreRepository StoreRepository => throw new NotImplementedException();
