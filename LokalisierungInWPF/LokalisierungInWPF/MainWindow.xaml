@@ -1,0 +1,15 @@
+﻿<Window x:Class="LokalisierungInWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LokalisierungInWPF"
+        xmlns:prop="clr-namespace:LokalisierungInWPF.Properties"
+        mc:Ignorable="d"
+        Title="{x:Static prop:Resources.TitleText}" Height="200" Width="200">
+    <StackPanel Margin="10">
+        <!-- In Resources.resx von Internal auf Public umsetzen !!!-->
+        <TextBlock Text="{x:Static prop:Resources.TextBlockText}" Margin="0,20"/>
+        <Button Content="{x:Static prop:Resources.ButtonText}" Click="Button_Click"/>
+    </StackPanel>
+</Window>
